@@ -1,0 +1,10 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/v1@pod": [
+            "git:/c%3A/work/Learning/OTUS/2%20%D1%83%D1%80%D0%BE%D0%BA/HW/parranoidall_platform/kubernetes-intro/frontend-pod.yaml?%7B%22path%22%3A%22c%3A%5C%5Cwork%5C%5CLearning%5C%5COTUS%5C%5C2%20%D1%83%D1%80%D0%BE%D0%BA%5C%5CHW%5C%5Cparranoidall_platform%5C%5Ckubernetes-intro%5C%5Cfrontend-pod.yaml%22%2C%22ref%22%3A%22HEAD%22%7D",
+            "file:///c%3A/work/Learning/OTUS/2%20%D1%83%D1%80%D0%BE%D0%BA/HW/parranoidall_platform/kubernetes-controllers/frontend-replicaset.yaml"
+        ],
+        "kubernetes://schema/apps/v1@deployment": "file:///c%3A/work/Learning/OTUS/2%20%D1%83%D1%80%D0%BE%D0%BA/HW/parranoidall_platform/kubernetes-controllers/paymentservice-deployment.yaml",
+        "kubernetes://schema/apps/v1@daemonset": "file:///c%3A/work/Learning/OTUS/2%20%D1%83%D1%80%D0%BE%D0%BA/HW/parranoidall_platform/kubernetes-controllers/nodeexporter-%20daemonset.yaml"
+    }
+}
