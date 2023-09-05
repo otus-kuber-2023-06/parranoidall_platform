@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: parranoidall/parranoidall-frontr:0.0.2
+        name: frontend
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          initialDelaySeconds: 1
+          httpGet:
+            path: "/_healthz"
+            port: 8080
+            httpHeaders:
+            - name: "Cookie"
+              value: "shop_session-id=x-readiness-probe"
+        livenessProbe:
+          initialDelaySeconds: 1
+          httpGet:
+            path: "/_healthz"
+            port: 8080
+            httpHeaders:
+            - name: "Cookie"
+              value: "shop_session-id=x-liveness-probe"
+        env:
+        - name: PRODUCT_CATALOG_SERVICE_ADDR
+          value: "some_server_1:1111"
+        - name: CURRENCY_SERVICE_ADDR
+          value: "some_server_2:2222"
+        - name: CART_SERVICE_ADDR
+          value: "some_server_3:3333"
+        - name: RECOMMENDATION_SERVICE_ADDR
+          value: "some_server_4:4444"
+        - name: SHIPPING_SERVICE_ADDR
+          value: "some_server_5:5555"
+        - name: CHECKOUT_SERVICE_ADDR
+          value: "some_server_6:6666"
+        - name: AD_SERVICE_ADDR
+          value: "some_server_7:7777"
+        - name: PORT
+          value: "8080"
